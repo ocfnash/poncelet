@@ -1,5 +1,19 @@
 import Roots from './cubic-roots';
 
+export function getPonceletPoints(a, b, r, n, phi) {
+  const points = [ellipseCoordsFromPhi(a, b, r, phi)];
+  for (var i = 0; i < n; ++i) {
+    phi = ponceletIterate(a, b, r, phi);
+    points.push(ellipseCoordsFromPhi(a, b, r, phi));
+  }
+  return points;
+}
+
+export const applyAffineTrans = (pts, offset, scale) => pts.map(pt => ({
+  x: offset.x + scale*pt.x,
+  y: offset.y + scale*pt.y
+}));
+
 export const phiFromEllipseCoords = (a, b, x, y) => Math.atan2(a*y, b*x);
 
 export const ellipseCoordsFromPhi = (a, b, r, phi) => (

@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
-import {ellipseCoordsFromPhi, ponceletIterate} from '../math-utils';
+import {getPonceletPoints} from '../math-utils';
 
 class PonceletNGon extends Component {
-  getEndPoints() {
-    const {a, b, r, n} = this.props;
-    var phi = this.props.phi;
-    var points = [ellipseCoordsFromPhi(a, b, r, phi)];
-    for (var i = 0; i < n; ++i) {
-      phi = ponceletIterate(a, b, r, phi);
-      points.push(ellipseCoordsFromPhi(a, b, r, phi));
-    }
-    return points;
-  }
   renderLine(p, q, key) {
     const plot = this.props.plot;
     return <line fill="none" stroke="red" key={key}
@@ -19,7 +9,8 @@ class PonceletNGon extends Component {
       x2={plot(q.x)} y2={plot(q.y)} />;
   }
   render() {
-    const endPoints = this.getEndPoints();
+    const {a, b, r, n, phi} = this.props;
+    const endPoints = getPonceletPoints(a, b, r, n, phi);
     const lines = [];
     for (var i = 0; i < endPoints.length-1; ++i) {
       lines.push(this.renderLine(endPoints[i], endPoints[i+1], `poncelet-chord-${i}`));
