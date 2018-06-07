@@ -7,8 +7,8 @@ import {cayleyCubicRoots} from '../math-utils';
 import './../css/App.css';
 
 const SCALE = 45;
-const WIDTH = 500;
-const CENTER = WIDTH/2;
+const SIZE = 500;
+const CENTER = SIZE/2;
 
 const PHI_RESOLUTION = 1000;
 const ELLIPSE_PARAM_RESOLUTION = 1000;
@@ -16,7 +16,7 @@ const ELLIPSE_PARAM_RESOLUTION = 1000;
 const plot = p => CENTER + SCALE*p;
 const phiFromIndex = i => 2 * Math.PI * i / PHI_RESOLUTION;
 const minEllipseParam = 0.5;
-const maxEllipseParam = 5.5; // Should have maxEllipseParam * 2 * SCALE < WIDTH
+const maxEllipseParam = 5.5; // Should have maxEllipseParam * 2 * SCALE < SIZE
 const ellipseParamFromIndex = i => minEllipseParam + (maxEllipseParam - minEllipseParam) * i / ELLIPSE_PARAM_RESOLUTION;
 const indexFromEllipseParam = p => ELLIPSE_PARAM_RESOLUTION * (p - minEllipseParam) / (maxEllipseParam - minEllipseParam);
 const minEllipseIndex = indexFromEllipseParam(Math.ceil(minEllipseParam));
@@ -108,19 +108,19 @@ class App extends Component {
     const phi = phiFromIndex(this.state.iPhi);
     const a = ellipseParamFromIndex(this.state.iA);
     const b = ellipseParamFromIndex(this.state.iB);
+    const {r, n} = this.state;
     return (
       <div className="app">
         <div className="poncelet-n-gon-with-controls">
-          <svg className="poncelet-container" width={WIDTH} height={WIDTH} >
-            <ellipse cx={CENTER} cy={CENTER} rx={a/this.state.r*SCALE} ry={b/this.state.r*SCALE} fill="none" stroke="black" />
+          <svg className="poncelet-container" width={SIZE} height={SIZE} >
+            <ellipse cx={CENTER} cy={CENTER} rx={a/r*SCALE} ry={b/r*SCALE} fill="none" stroke="black" />
             <circle  cx={CENTER} cy={CENTER} r={SCALE} fill="none" stroke="black" />
-            <PonceletNGon a={a} b={b} r={this.state.r}
-              phi={phi} n={this.state.n} plot={plot} />
+            <PonceletNGon a={a} b={b} r={r} phi={phi} n={n} plot={plot} />
           </svg>
           {this.renderSliderControls()}
           {this.renderNControls()}
         </div>
-        <CayleyCurves roots={cayleyCubicRoots(a, b, this.state.r)} onPointSelected={this.handleCayleyCurvesClick} />
+        <CayleyCurves roots={cayleyCubicRoots(a, b, r)} onPointSelected={this.handleCayleyCurvesClick} />
         <PonceletPresets selectParams={this.handlePresetSelected} />
       </div>
     );
