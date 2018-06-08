@@ -146,3 +146,7 @@
 .poncelet-preset-cell-name:hover {
   background-color: transparent;
 }
+
+.hidden-poncelet-gif-canvas {
+  display: none;
+}

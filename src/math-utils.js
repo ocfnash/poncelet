@@ -10,8 +10,8 @@ export function getPonceletPoints(a, b, r, n, phi) {
 }
 
 export const applyAffineTrans = (pts, offset, scale) => pts.map(pt => ({
-  x: offset.x + scale*pt.x,
-  y: offset.y + scale*pt.y
+  x: offset + scale*pt.x,
+  y: offset + scale*pt.y
 }));
 
 export const phiFromEllipseCoords = (a, b, x, y) => Math.atan2(a*y, b*x);

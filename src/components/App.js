@@ -3,6 +3,7 @@ import PonceletNGon from './poncelet-n-gon.js';
 import ParamSlider from './param-slider.js';
 import CayleyCurves from './cayley-curves.js';
 import PonceletPresets from './poncelet-presets.js';
+import PonceletGif from './poncelet-gif.js';
 import {cayleyCubicRoots} from '../math-utils';
 import './../css/App.css';
 
@@ -122,6 +123,7 @@ class App extends Component {
         </div>
         <CayleyCurves roots={cayleyCubicRoots(a, b, r)} onPointSelected={this.handleCayleyCurvesClick} />
         <PonceletPresets selectParams={this.handlePresetSelected} />
+        <PonceletGif a={a} b={b} r={r} n={n} SCALE={SCALE} SIZE={SIZE} CENTER={CENTER} />
       </div>
     );
   }
