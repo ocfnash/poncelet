@@ -37,6 +37,11 @@
 
 .cayley-curve-ellipsis {
   margin: 0 0 10px 10px;
+  vertical-align: middle;
+}
+
+.caley-curve-checkbox-container, .cayley-curve-ellipsis {
+  display: inline-block;
 }
 
 .cayley-curve-checkboxes {
@@ -44,9 +49,7 @@
   color: #999;
   border: 1px solid #cacaca;
   border-radius: 3px;
-}
-
-.caley-curve-checkbox-container {
+  width: 450px;
 }
 
 .caley-curve-checkbox {

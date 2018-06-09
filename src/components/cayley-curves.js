@@ -68,7 +68,7 @@ class CayleyCurves extends Component {
         </div>
         <div className="cayley-curve-checkboxes">
           {this.renderLayerToggles()}
-          <div className="cayley-curve-ellipsis">...</div>
+          <div className="cayley-curve-ellipsis">&hellip;</div>
         </div>
       </div>
     );
