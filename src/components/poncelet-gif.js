@@ -69,13 +69,19 @@ class PonceletGif extends Component {
   renderGif() {
     const imgSize = this.props.SIZE / 2;
     var imgSrc = 'assets/images/gif-blank.gif';
+    var cursor = 'pointer';
+    var titleText = 'Click here to generate an animated gif.';
     if (this.state.gifState === GifStateEnum.working) {
-      imgSrc = 'assets/images/gif-working.gif';
+      // imgSrc = 'assets/images/gif-working.gif';
+      cursor = 'wait';
+      titleText = 'Generating animated gif ...';
     } else if (this.state.gifState === GifStateEnum.ready) {
       imgSrc = this.state.gifContent;
+      titleText = 'Click here to generate another animated gif.';
     }
     return (<img className="animated-poncelet-gif" onClick={this.generateGif}
-      width={imgSize} height={imgSize} src={imgSrc} alt="" />);
+      width={imgSize} height={imgSize} src={imgSrc} alt={titleText}
+      title={titleText} style={{cursor: cursor}} />);
   }
   render() {
     const SIZE = this.props.SIZE;
