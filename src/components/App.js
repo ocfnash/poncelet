@@ -123,7 +123,7 @@ class App extends Component {
         </div>
         <CayleyCurves roots={cayleyCubicRoots(a, b, r)} onPointSelected={this.handleCayleyCurvesClick} />
         <PonceletPresets selectParams={this.handlePresetSelected} />
-        <PonceletGif a={a} b={b} r={r} n={n} SCALE={SCALE} SIZE={SIZE} CENTER={CENTER} />
+        <PonceletGif a={a} b={b} r={r} n={n} SIZE={SIZE} CENTER={CENTER} />
       </div>
     );
   }
