@@ -49,6 +49,7 @@ class PonceletGif extends Component {
     return frames;
   }
   generateGif() {
+    if (this.state.gifState === GifStateEnum.working) return;
     this.setState({ gifState: GifStateEnum.working });
     const SIZE = this.props.SIZE;
     gifshot.createGIF({
@@ -73,13 +74,13 @@ class PonceletGif extends Component {
     } else if (this.state.gifState === GifStateEnum.ready) {
       imgSrc = this.state.gifContent;
     }
-    return (<img id="animated-poncelet-gif" width={imgSize} height={imgSize} src={imgSrc} alt="" />);
+    return (<img className="animated-poncelet-gif" onClick={this.generateGif}
+      width={imgSize} height={imgSize} src={imgSrc} alt="" />);
   }
   render() {
     const SIZE = this.props.SIZE;
     return (<div className="poncelet-gif-container">
         <canvas className="hidden-poncelet-gif-canvas" ref={this.canvasRef} width={SIZE} height={SIZE} ></canvas>
-        <button onClick={this.generateGif} disabled={this.state.gifState === GifStateEnum.working}>Giz a GIF</button>
         {this.renderGif()}
       </div>
     );
