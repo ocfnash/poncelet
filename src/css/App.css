@@ -3,10 +3,11 @@
   margin: 0 auto;
 }
 
-.poncelet-n-gon-with-controls, .cayley-curves-container {
+.poncelet-n-gon-with-controls, .cayley-curves-container, .poncelet-presets-container, .poncelet-gif-container {
   display: inline-block;
   vertical-align: top;
-  margin: 25px;
+  width: 500px;
+  margin: 5px 25px;
   overflow: hidden;
 }
 
@@ -87,7 +88,7 @@
   user-select: none;
   display: inline-block;
   cursor: pointer;
-  margin: 20px;
+  margin: 5px 20px;
   font-size: 40px;
   border-radius: 50%;
   color: #abe2fb;
@@ -118,13 +119,6 @@
   text-align: center;
 }
 
-.poncelet-presets-container {
-  display: inline-block;
-  width: 500px;
-  margin: 25px;
-  vertical-align: top;
-}
-
 .poncelet-preset-selector {
   display: inline-block;
   margin: 5px;
@@ -143,10 +137,21 @@
   background-color: transparent;
 }
 
+.animated-poncelet-gif {
+  margin-left: 125px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 250ms ease;
+}
+
+.animated-poncelet-gif:hover {
+  box-shadow: 0 8px 20px -10px rgba(0,0,0,.75);
+  border: 1px solid rgb(210, 210, 210);
+}
+
 .poncelet-gif-container {
-  display: inline-block;
-  vertical-align: top;
-  margin: -120px 20px 20px 20px; /* Naughty negative margin hack! */
+  margin-top: -100px; // Eek!
+  overflow: visible;
 }
 
 .hidden-poncelet-gif-canvas {
