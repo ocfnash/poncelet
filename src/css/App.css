@@ -118,27 +118,20 @@
   text-align: center;
 }
 
-.poncelet-presets-table {
-  margin: 0 auto;
-  color: #999;
+.poncelet-presets-container {
+  display: inline-block;
+  width: 500px;
+  margin: 25px;
+  vertical-align: top;
 }
 
-.poncelet-preset-header {
-  text-align: center;
-}
-
-.poncelet-preset-row {
-  text-align: right;
-}
-
-.poncelet-preset-cell, .poncelet-preset-cell-name {
-  margin: 1px;
-  padding: 10px;
-}
-
-.poncelet-preset-cell-name {
-  text-align: left;
-  width: 60px;
+.poncelet-preset-selector {
+  display: inline-block;
+  margin: 5px;
+  padding: 12px;
+  width: 80px;
+  height: 40px;
+  vertical-align: top;
   cursor: pointer;
   background-color: #abe2fb;
   border: 1px solid #cacaca;
@@ -146,8 +139,14 @@
   transition: all 100ms;
 }
 
-.poncelet-preset-cell-name:hover {
+.poncelet-preset-selector:hover {
   background-color: transparent;
+}
+
+.poncelet-gif-container {
+  display: inline-block;
+  vertical-align: top;
+  margin: -120px 20px 20px 20px; /* Naughty negative margin hack! */
 }
 
 .hidden-poncelet-gif-canvas {
