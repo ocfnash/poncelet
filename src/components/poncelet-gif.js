@@ -26,7 +26,7 @@ class PonceletGif extends Component {
   generateSingleFrame(canvas, ellipsesPath2D, phi) {
     const {a, b, r, n, CENTER} = this.props;
     const ctx = canvas.getContext('2d', { alpha: false });
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = 'black';
     ctx.stroke(ellipsesPath2D);
