@@ -130,6 +130,9 @@
   border: 1px solid #cacaca;
   color: #777;
   transition: all 100ms;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
 }
 
 .poncelet-preset-selector:hover {
