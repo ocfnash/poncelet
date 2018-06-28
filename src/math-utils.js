@@ -26,7 +26,7 @@ export const ellipseCoordsFromPhi = (a, b, r, phi) => (
 export const cayleyCubicRoots = (a, b, r) => ([-a*a, -b*b, -r*r]);
 
 export function cayleyCoordsFromRoots(roots) {
-  roots = roots.map(r => 1/r);
+  roots = roots.map(r => -1/r);
   const e1 = roots.reduce((a, b) => a+b, 0);
   const e2 = roots[0]*roots[1] + roots[1]*roots[2] + roots[2]*roots[0];
   const e3 = roots.reduce((a, b) => a*b, 1);
@@ -37,9 +37,9 @@ export function cayleyCoordsFromRoots(roots) {
 }
 
 export function rootsFromCayleyCoords(x, y) {
-  const roots = Roots.getCubicRoots(y, -x, 1, -1);
+  const roots = Roots.getCubicRoots(y, x, 1, 1);
   return {
-    realRootComps: roots.map(z => z.real).sort((u, v) => u-v),
+    realRootComps: roots.map(z => -z.real).sort((u, v) => u-v),
     maxImagComp: roots.reduce((m, z) => Math.max(m, Math.abs(z.imag)), 0)
   };
 }
