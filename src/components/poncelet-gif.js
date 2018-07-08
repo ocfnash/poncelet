@@ -72,7 +72,7 @@ class PonceletGif extends Component {
     var cursor = 'pointer';
     var titleText = 'Click here to generate an animated gif.';
     if (this.state.gifState === GifStateEnum.working) {
-      // imgSrc = 'assets/images/gif-working.gif';
+      imgSrc = 'assets/images/gif-working.gif';
       cursor = 'wait';
       titleText = 'Generating animated gif ...';
     } else if (this.state.gifState === GifStateEnum.ready) {
