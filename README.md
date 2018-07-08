@@ -1,4 +1,4 @@
 # poncelet
-Interactive Poncelet Porism
+An interactive app for enjoying Poncelet's Porism.
 
-More detail and hosted link to follow shortly!
+Find out more, and try it out [here](http://olivernash.org/2018/07/08/poring-over-poncelet/index.html).
